@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  repository-policy:
+    name: Repository policy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Verify required documentation
+        shell: bash
+        run: |
+          set -euo pipefail
+          required_files=(
+            README.md
+            CONTRIBUTING.md
+            Docs/Architecture.md
+            Docs/DataModel.md
+            Docs/FeatureScope.md
+            Docs/GitWorkflow.md
+            .github/PULL_REQUEST_TEMPLATE.md
+          )
+          for file in "${required_files[@]}"; do
+            test -f "$file"
+          done
+
+      - name: Reject generated Unity directories
+        shell: bash
+        run: |
+          set -euo pipefail
+          forbidden=$(find . -type d \( -name Library -o -name Temp -o -name Obj -o -name Logs \) -not -path './.git/*')
+          if [ -n "$forbidden" ]; then
+            printf 'Generated Unity directories must not be committed:\n%s\n' "$forbidden"
+            exit 1
+          fi
+
+      - name: Check documentation navigation
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q 'CONTRIBUTING.md' README.md
+          grep -q 'Docs/Architecture.md' README.md
+          grep -q 'Docs/GitWorkflow.md' README.md
+
+  # Add Unity EditMode and PlayMode test jobs after the first Unity project is committed.
+  # The repository policy job stays independent so documentation-only changes are checked now.
