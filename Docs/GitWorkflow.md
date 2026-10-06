@@ -7,6 +7,8 @@ CI 负责自动验证每个分支和 Pull Request 的仓库规则。合并由 Gi
 ## 标准流程
 
 ```text
+main
+    -> create task branch
 feature/*
     -> push
     -> CI
@@ -14,8 +16,11 @@ feature/*
     -> review / checklist
     -> required CI green
     -> squash merge
-    -> delete branch
+    -> automatic remote branch deletion
+    -> delete local branch
 ```
+
+`main` 是唯一长期保留的分支。每项功能、修复或仓库维护工作都从最新的 `main` 创建独立任务分支；任务合并后不继续保留该任务分支，也不创建长期存在的 `develop` 或个人分支。
 
 ## CI 触发时机
 
@@ -45,6 +50,21 @@ GitHub 仓库设置中应为 `main` 配置以下保护规则：
 通过 GitHub Pull Request 的 `Enable auto-merge` 启用自动合并。启用后，GitHub 会等待必需检查和审批满足条件，再按照仓库设置执行 squash merge。
 
 仓库不使用一个拥有写入权限的 CI 机器人直接执行 `git push` 或 `gh pr merge`。这样可以保留分支保护、审批和检查作为真正的合并门槛；如果 CI 失败，PR 会保持打开并等待修复。
+
+## 合并后清理分支
+
+仓库启用 GitHub 的 `Automatically delete head branches` 设置。Pull Request 合并后，GitHub 会自动删除源任务分支，例如 `feature/*`、`fix/*` 或 `chore/*`。`main` 不会被删除；如果后续需要追溯，合并提交和 PR 中仍保留完整历史。
+
+远程分支删除后，在本地完成清理：
+
+```text
+git switch main
+git pull --ff-only origin main
+git branch -d <task-branch>
+git fetch --prune origin
+```
+
+如果任务分支尚未合并，使用 `git branch -d` 会拒绝删除，以避免误删未合并的工作。只有明确放弃该任务时，才允许使用 `git branch -D`。
 
 ## 本地检查
 
