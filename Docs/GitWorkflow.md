@@ -25,7 +25,7 @@ feature/*
 - 目标为 `main` 的 Pull Request，用来作为合并门禁。
 - 手动 `workflow_dispatch`，用于重新验证当前分支。
 
-当前 CI 检查仓库文档、必需文件和 Unity 生成目录。第一个 Unity 工程提交后，再加入 EditMode、PlayMode 和构建验证 job。Unity 测试 job 必须使用固定版本，并缓存只读的依赖，不把 `Library` 缓存提交到 Git。
+当前 CI 检查仓库文档、必需文件和 Unity 生成目录。第一个 Unity 工程提交后，再加入 EditMode、PlayMode 和构建验证 job。Unity 测试 job 必须固定使用 Unity 2022.3.62f3，并缓存只读的依赖，不把 `Library` 缓存提交到 Git。
 
 ## main 分支规则
 
@@ -55,4 +55,4 @@ git status
 git diff --check
 ```
 
-Unity 工程存在后，再打开固定版本的 Unity，确认 Console 无编译错误，并运行与变更相关的 EditMode / PlayMode 测试。
+Unity 工程存在后，再打开 Unity 2022.3.62f3，确认 Console 无编译错误，并运行与变更相关的 EditMode / PlayMode 测试。
