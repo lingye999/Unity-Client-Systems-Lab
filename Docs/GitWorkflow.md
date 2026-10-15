@@ -20,6 +20,8 @@ feature/*
     -> delete local branch
 ```
 
+每次发布任务都走完整流程：创建短期分支、提交 PR、检查通过、自动 squash 合并、删除远程任务分支、同步本地 main 并清理本地分支。同一 PR 合并前的修正继续推送到该任务分支。不能把创建 PR 当作发布已完成。
+
 `main` 是唯一长期保留的分支。每项功能、修复或仓库维护工作都从最新的 `main` 创建独立任务分支；任务合并后不继续保留该任务分支，也不创建长期存在的 `develop` 或个人分支。
 
 ## CI 触发时机
@@ -30,7 +32,7 @@ feature/*
 - 目标为 `main` 的 Pull Request，用来作为合并门禁。
 - 手动 `workflow_dispatch`，用于重新验证当前分支。
 
-当前 CI 检查仓库文档、必需文件和 Unity 生成目录。第一个 Unity 工程提交后，再加入 EditMode、PlayMode 和构建验证 job。Unity 测试 job 必须固定使用 Unity 2022.3.62f3，并缓存只读的依赖，不把 `Library` 缓存提交到 Git。
+当前 CI 检查必需文档、根与模块 README 的章节职责、本地 Markdown 链接和 Unity 生成目录。文档规则入口为 `.github/scripts/check_repository_docs.py`。EditMode、PlayMode 和构建验证 job 尚未接入；Unity 本机验收与 GitHub CI 分别记录。后续 Unity 测试 job 必须固定使用 Unity 2022.3.62f3，并缓存只读的依赖，不把 `Library` 缓存提交到 Git。
 
 ## main 分支规则
 
@@ -43,17 +45,17 @@ GitHub 仓库设置中应为 `main` 配置以下保护规则：
 - 采用 squash merge，保持主分支提交历史按功能组织。
 - 合并后删除任务分支。
 
-这些保护规则属于 GitHub 仓库设置，不能仅靠仓库文件自动生效，需要在仓库 Settings 中配置一次。
+这些保护规则属于 GitHub 仓库设置，不能仅靠仓库文件自动生效。仓库须同时启用 `Allow auto-merge` 和 `Automatically delete head branches`，并为 main 配置必需 PR 与 `Repository policy` 检查；管理员也遵循该门禁。调整发布流程时须读取实际设置核对，不能只依据本文判断已经启用。
 
 ## 自动合并
 
-通过 GitHub Pull Request 的 `Enable auto-merge` 启用自动合并。启用后，GitHub 会等待必需检查和审批满足条件，再按照仓库设置执行 squash merge。
+通过 GitHub Pull Request 的 `Enable auto-merge` 启用自动合并。仓库的 `Allow auto-merge` 只是允许使用该能力；每个新 PR 仍须单独启用 `Enable auto-merge`，并选择 squash。GitHub 会等待必需检查和审批满足条件后合并；当前不要求额外人工批准次数，必需 CI 检查必须通过。
 
 仓库不使用一个拥有写入权限的 CI 机器人直接执行 `git push` 或 `gh pr merge`。这样可以保留分支保护、审批和检查作为真正的合并门槛；如果 CI 失败，PR 会保持打开并等待修复。
 
 ## 合并后清理分支
 
-仓库启用 GitHub 的 `Automatically delete head branches` 设置。Pull Request 合并后，GitHub 会自动删除源任务分支，例如 `feature/*`、`fix/*` 或 `chore/*`。`main` 不会被删除；如果后续需要追溯，合并提交和 PR 中仍保留完整历史。
+仓库启用 GitHub 的 `Automatically delete head branches` 设置。Pull Request 合并后，GitHub 会自动删除源任务分支，例如 `feature/*`、`fix/*` 或 `chore/*`。`main` 不会被删除；如果后续需要追溯，合并提交和 PR 中仍保留完整历史。发布完成前须核对 PR 已合并、main 包含合并提交，以及远程任务分支确实已删除。开启设置不会补删历史遗留分支；仅在核实 PR 已合并且分支未新增提交后清理它们。
 
 远程分支删除后，在本地完成清理：
 

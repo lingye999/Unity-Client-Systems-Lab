@@ -1,6 +1,6 @@
 # 功能边界和阶段计划
 
-> 本文主要描述后续客户端系统的设计约定。当前已运行的森林地图位于 `Assets/ForgottenMemories/PastoralGridV2`，其实际结构与功能以[仓库 README](../README.md)为准。
+> 本文主要描述后续客户端系统的设计约定。当前已运行的森林地图位于 `Assets/ForgottenMemories/PastoralGridV2`，其实际结构与功能以[森林模块 README](../Assets/ForgottenMemories/PastoralGridV2/README.md)为准。
 
 ## 项目定位
 
