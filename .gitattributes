@@ -1,0 +1,12 @@
+* text=auto
+*.cs text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.unity text eol=lf whitespace=-blank-at-eol
+*.asset text eol=lf whitespace=-blank-at-eol
+*.meta text eol=lf whitespace=-blank-at-eol
+*.png binary
+# Keep vendored source formatting unchanged for upstream hash verification.
+Assets/ForgottenMemories/PastoralGridV2/Runtime/ThirdParty/FastNoiseLite.cs whitespace=-blank-at-eol

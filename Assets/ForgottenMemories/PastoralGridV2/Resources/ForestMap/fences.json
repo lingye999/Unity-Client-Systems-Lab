@@ -1,0 +1,313 @@
+{
+  "schemaVersion": 1,
+  "pixelsPerUnit": 32,
+  "coordinateOrigin": "top-left",
+  "sprites": [
+    {
+      "id": "flat_fence_00",
+      "family": "fence",
+      "x": 0,
+      "y": 0,
+      "width": 32,
+      "height": 32,
+      "anchorX": 16,
+      "anchorY": 27,
+      "radiusPixels": 4,
+      "connectivityMask": 0,
+      "sourceRect": [
+        1824,
+        160,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "flat_fence_01",
+      "family": "fence",
+      "x": 32,
+      "y": 0,
+      "width": 32,
+      "height": 32,
+      "anchorX": 16,
+      "anchorY": 27,
+      "radiusPixels": 4,
+      "connectivityMask": 1,
+      "sourceRect": [
+        1888,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "flat_fence_02",
+      "family": "fence",
+      "x": 64,
+      "y": 0,
+      "width": 32,
+      "height": 32,
+      "anchorX": 16,
+      "anchorY": 27,
+      "radiusPixels": 4,
+      "connectivityMask": 2,
+      "sourceRect": [
+        1824,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "flat_fence_03",
+      "family": "fence",
+      "x": 96,
+      "y": 0,
+      "width": 32,
+      "height": 32,
+      "anchorX": 16,
+      "anchorY": 27,
+      "radiusPixels": 4,
+      "connectivityMask": 3,
+      "sourceRect": [
+        1824,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "flat_fence_04",
+      "family": "fence",
+      "x": 0,
+      "y": 32,
+      "width": 32,
+      "height": 32,
+      "anchorX": 16,
+      "anchorY": 27,
+      "radiusPixels": 4,
+      "connectivityMask": 4,
+      "sourceRect": [
+        1888,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "flat_fence_05",
+      "family": "fence",
+      "x": 32,
+      "y": 32,
+      "width": 32,
+      "height": 32,
+      "anchorX": 16,
+      "anchorY": 27,
+      "radiusPixels": 4,
+      "connectivityMask": 5,
+      "sourceRect": [
+        1888,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "flat_fence_06",
+      "family": "fence",
+      "x": 64,
+      "y": 32,
+      "width": 32,
+      "height": 32,
+      "anchorX": 16,
+      "anchorY": 27,
+      "radiusPixels": 4,
+      "connectivityMask": 6,
+      "sourceRect": [
+        1824,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "flat_fence_07",
+      "family": "fence",
+      "x": 96,
+      "y": 32,
+      "width": 32,
+      "height": 32,
+      "anchorX": 16,
+      "anchorY": 27,
+      "radiusPixels": 4,
+      "connectivityMask": 7,
+      "sourceRect": [
+        1824,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "flat_fence_08",
+      "family": "fence",
+      "x": 0,
+      "y": 64,
+      "width": 32,
+      "height": 32,
+      "anchorX": 16,
+      "anchorY": 27,
+      "radiusPixels": 4,
+      "connectivityMask": 8,
+      "sourceRect": [
+        1856,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "flat_fence_09",
+      "family": "fence",
+      "x": 32,
+      "y": 64,
+      "width": 32,
+      "height": 32,
+      "anchorX": 16,
+      "anchorY": 27,
+      "radiusPixels": 4,
+      "connectivityMask": 9,
+      "sourceRect": [
+        1856,
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "flat_fence_10",
+      "family": "fence",
+      "x": 64,
+      "y": 64,
+      "width": 32,
+      "height": 32,
+      "anchorX": 16,
+      "anchorY": 27,
+      "radiusPixels": 4,
+      "connectivityMask": 10,
+      "sourceRect": [
+        1888,
+        128,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "flat_fence_11",
+      "family": "fence",
+      "x": 96,
+      "y": 64,
+      "width": 32,
+      "height": 32,
+      "anchorX": 16,
+      "anchorY": 27,
+      "radiusPixels": 4,
+      "connectivityMask": 11,
+      "sourceRect": [
+        1856,
+        96,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "flat_fence_12",
+      "family": "fence",
+      "x": 0,
+      "y": 96,
+      "width": 32,
+      "height": 32,
+      "anchorX": 16,
+      "anchorY": 27,
+      "radiusPixels": 4,
+      "connectivityMask": 12,
+      "sourceRect": [
+        1856,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "flat_fence_13",
+      "family": "fence",
+      "x": 32,
+      "y": 96,
+      "width": 32,
+      "height": 32,
+      "anchorX": 16,
+      "anchorY": 27,
+      "radiusPixels": 4,
+      "connectivityMask": 13,
+      "sourceRect": [
+        1856,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "flat_fence_14",
+      "family": "fence",
+      "x": 64,
+      "y": 96,
+      "width": 32,
+      "height": 32,
+      "anchorX": 16,
+      "anchorY": 27,
+      "radiusPixels": 4,
+      "connectivityMask": 14,
+      "sourceRect": [
+        1824,
+        64,
+        32,
+        32
+      ]
+    },
+    {
+      "id": "flat_fence_15",
+      "family": "fence",
+      "x": 96,
+      "y": 96,
+      "width": 32,
+      "height": 32,
+      "anchorX": 16,
+      "anchorY": 27,
+      "radiusPixels": 4,
+      "connectivityMask": 15,
+      "sourceRect": [
+        1888,
+        0,
+        32,
+        32
+      ]
+    }
+  ],
+  "source": "ForgottenMemories/TileSet.png",
+  "sourceSHA256": "325b068faddaa881f344fabf4ef5f9789396807f17a31145d2056ff3a8606950",
+  "directionBits": {
+    "N": 1,
+    "E": 2,
+    "S": 4,
+    "W": 8
+  },
+  "pixelChanges": "None: exact RGBA crops, no rotation, scaling or recoloring",
+  "collision": {
+    "geometry": "axis-aligned segments between post roots",
+    "halfThicknessPixels": 4,
+    "rootAnchorPixels": [
+      16,
+      27
+    ],
+    "postSpacingPixels": 32
+  }
+}
