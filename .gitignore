@@ -116,3 +116,6 @@ InitTestScene*.unity*
 /.vscode/
 .DS_Store
 Thumbs.db
+
+# Local AI instructions; repository rules live in CONTRIBUTING.md.
+/AGENTS.md

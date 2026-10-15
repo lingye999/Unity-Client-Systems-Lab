@@ -29,6 +29,7 @@ jobs:
           set -euo pipefail
           required_files=(
             README.md
+            Assets/ForgottenMemories/PastoralGridV2/README.md
             CONTRIBUTING.md
             Docs/Architecture.md
             Docs/DataModel.md
@@ -50,13 +51,11 @@ jobs:
             exit 1
           fi
 
-      - name: Check documentation navigation
+      - name: Check documentation responsibilities and links
         shell: bash
         run: |
           set -euo pipefail
-          grep -q 'CONTRIBUTING.md' README.md
-          grep -q 'Docs/Architecture.md' README.md
-          grep -q 'Docs/GitWorkflow.md' README.md
+          python3 .github/scripts/check_repository_docs.py
 
-  # Add Unity EditMode and PlayMode test jobs after the first Unity project is committed.
-  # The repository policy job stays independent so documentation-only changes are checked now.
+  # Unity EditMode, PlayMode and build jobs remain planned; local Unity evidence is documented separately.
+  # Repository policy also runs for documentation-only changes.
