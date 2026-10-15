@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8585cf5c63e628049b4362ec68eb9c4c, type: 3}
+  m_Name: ForestDefault
+  m_EditorClassIdentifier: 
+  recipe:
+    vegetation:
+      macroScalePixels: 410
+      localScalePixels: 145
+      baseDensity: 0.39
+      edgeWeight: 0.21
+      macroWeight: 0.2
+      localWeight: 0.1
+      regionWeight: 0.08
+      regionReference: 0.45
+      maintenanceSuppression: 0.89
+      edgeStartPixels: 50
+      edgeFadePixels: 230
+      roadFadePixels: 85
+      clearingMarginPixels: 30
+    placement:
+      boundaryMarginPixels: 6
+      rootRoadPaddingPixels: 9
+      rootClearingMarginPixels: 12
+      rootBankPaddingPixels: 4
+      canopyClearingMarginPixels: 8
+      treeRootGapPixels: 10
+      propRootGapPixels: 6
+      willowSpacingPixels: 320
+      maxTreeCanopyOverlap: 0.45

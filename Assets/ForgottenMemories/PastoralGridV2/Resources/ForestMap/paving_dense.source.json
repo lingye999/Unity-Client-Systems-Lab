@@ -1,0 +1,14 @@
+{
+  "source": "ForgottenMemories/TileSet.png",
+  "sourceRect": [
+    1312,
+    128,
+    144,
+    160
+  ],
+  "coordinateOrigin": "top-left",
+  "sourceSHA256": "325b068faddaa881f344fabf4ef5f9789396807f17a31145d2056ff3a8606950",
+  "output": "paving_dense.png",
+  "outputRGBAEqualsNativeCrop": true,
+  "transformations": "Exact RGBA crop only; no painting, scaling, rotation, recoloring or alpha removal"
+}
